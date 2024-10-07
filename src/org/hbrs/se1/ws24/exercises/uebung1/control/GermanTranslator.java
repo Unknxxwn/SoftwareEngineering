@@ -10,10 +10,15 @@ public class GermanTranslator implements Translator {
 	 * Methode zur Übersetzung einer Zahl in eine String-Repraesentation
 	 */
 	public String translateNumber(int number) {
-		// null indizierung also -1
 		String result = "";
-		result = translations[number - 1];
-		return result;
+		try {
+			// null indizierung also -1
+			result = translations[number - 1];
+			return result;
+		} catch (Exception e) {
+			// variable version stammt aus dem interface
+			return result = "Übersetzung der Zahl " + number + " nicht möglich" + " V" + version;
+		}
 	}
 
 	/**

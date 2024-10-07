@@ -1,4 +1,7 @@
-package org.hbrs.se1.ws24.exercises.uebung1.control;
+package org.hbrs.se1.ws24.exercises.uebung1.control.factory;
+
+import org.hbrs.se1.ws24.exercises.uebung1.control.GermanTranslator;
+import org.hbrs.se1.ws24.exercises.uebung1.control.Translator;
 
 public class TranslatorFactory {
     // Factory Method Design Pattern
@@ -7,6 +10,8 @@ public class TranslatorFactory {
         // Translator zurück zu geben
         // -> also if("German"){return new Germantranslator}if(X){return new
         // OtherTranslator}...
-        return new GermanTranslator();
+        GermanTranslator germanTranslator = new GermanTranslator();
+        germanTranslator.setDate("Okt/2024");
+        return germanTranslator;
     }
 }

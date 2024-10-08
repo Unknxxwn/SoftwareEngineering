@@ -4,7 +4,8 @@ public class GermanTranslator implements Translator {
 
 	public String date = "Okt/2024"; // Default-Wert
 
-	String[] translations = { "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun", "zehn" };
+	private String[] translations = { "eins", "zwei", "drei", "vier", "fünf", "sechs", "sieben", "acht", "neun",
+			"zehn" };
 
 	/**
 	 * Methode zur Übersetzung einer Zahl in eine String-Repraesentation

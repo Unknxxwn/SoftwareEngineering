@@ -11,6 +11,11 @@ public class Client {
 	 * (auch bezeichnet als CLI, Terminal)
 	 *
 	 */
+	// Dependency Injection für den Translator über einen Assembler
+	public Client(Translator translator) {
+		this.translator = translator;
+	}
+
 	// Dependency Injection für den Translator
 	public Client() {
 		this.translator = TranslatorFactory.createTranslator();

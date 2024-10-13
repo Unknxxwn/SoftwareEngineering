@@ -1,4 +1,4 @@
-package org.hbrs.se1.ws24.tests.uebung1;
+package org.hbrs.se1.ws24.tests.uebung1.uebung2;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.hbrs.se1.ws24.exercises.uebung1.control.GermanTranslator;

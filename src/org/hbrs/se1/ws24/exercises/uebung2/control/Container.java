@@ -10,6 +10,9 @@ public class Container {
     }
 
     public void addMember(Member member) throws ContainerException {
+        if (member == null || member.getID() == null) {
+            throw new ContainerException("Null wert als  Member-Objekt oder Member ID nicht gültig!");
+        }
         for (Member memberInList : memberList) {
             if (member.getID().equals(memberInList.getID())) {
                 throw new ContainerException(
@@ -31,7 +34,7 @@ public class Container {
             }
         }
         return "Der Member mit der ID = "
-                + compareMember.getID() +
+                + id +
                 " ist nicht vorhanden";
     }
 

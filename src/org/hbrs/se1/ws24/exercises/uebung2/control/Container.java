@@ -3,7 +3,6 @@ package org.hbrs.se1.ws24.exercises.uebung2.control;
 import java.util.ArrayList;
 
 public class Container {
-    private Member member;
     private ArrayList<Member> memberList = null;
 
     public Container() {
@@ -23,14 +22,16 @@ public class Container {
     }
 
     public String deleteMember(Integer id) {
+        Member compareMember = null;
         for (int i = 0; i < memberList.size(); i++) {
-            if (member.getID().equals(id)) {
+            compareMember = memberList.get(i);
+            if (compareMember.getID().equals(id)) {
                 memberList.remove(i);
-                return "Der Member mit der ID = " + member.getID() + " wurde gelöscht";
+                return "Der Member mit der ID = " + compareMember.getID() + " wurde gelöscht";
             }
         }
         return "Der Member mit der ID = "
-                + member.getID() +
+                + compareMember.getID() +
                 " ist nicht vorhanden";
     }
 

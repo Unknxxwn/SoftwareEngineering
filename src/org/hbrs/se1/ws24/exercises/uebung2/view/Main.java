@@ -6,7 +6,7 @@ import org.hbrs.se1.ws24.exercises.uebung2.control.Member;
 
 public class Main {
     public static void main(String[] args) {
-        Container container = new Container();
+        Container container = Container.getInstance();
         Member member = new ConcreteMember(1);
         Member member1 = new ConcreteMember(2);
         try {

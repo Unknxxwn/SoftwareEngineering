@@ -5,7 +5,16 @@ import java.util.ArrayList;
 public class Container {
     private ArrayList<Member> memberList = null;
 
-    public Container() {
+    private static Container containerInstance = null;
+
+    public static synchronized Container getInstance() {
+        if (containerInstance == null) {
+            containerInstance = new Container();
+        }
+        return containerInstance;
+    }
+
+    private Container() {
         this.memberList = new ArrayList<Member>();
     }
 
@@ -46,5 +55,8 @@ public class Container {
 
     public Integer size() {
         return memberList.size();
+    }
+
+    public void store() {
     }
 }

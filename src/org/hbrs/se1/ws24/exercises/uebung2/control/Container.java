@@ -1,21 +1,34 @@
 package org.hbrs.se1.ws24.exercises.uebung2.control;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import org.hbrs.se1.ws24.exercises.uebung3.persistence.PersistenceException;
+import org.hbrs.se1.ws24.exercises.uebung3.persistence.PersistenceStrategy;
 
 public class Container {
-    private ArrayList<Member> memberList = null;
+    private PersistenceStrategy<Member> persistenceStrategy = null;
+    private List<Member> memberList = null;
 
     private static Container containerInstance = null;
 
     public static synchronized Container getInstance() {
         if (containerInstance == null) {
-            containerInstance = new Container();
+            synchronized (Container.class) {
+                if (containerInstance == null) {
+                    containerInstance = new Container();
+                }
+            }
         }
         return containerInstance;
     }
 
     private Container() {
         this.memberList = new ArrayList<Member>();
+    }
+
+    public void setStrategy(PersistenceStrategy<Member> persistenceStrategy) {
+        this.persistenceStrategy = persistenceStrategy;
     }
 
     public void addMember(Member member) throws ContainerException {
@@ -57,6 +70,21 @@ public class Container {
         return memberList.size();
     }
 
-    public void store() {
+    public void store() throws PersistenceException {
+        if (persistenceStrategy == null) {
+            throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet,
+                    "Strategie nicht gesetzt");
+        }
+
+        this.persistenceStrategy.save(this.memberList);
+    }
+
+    public void load() throws PersistenceException {
+        if (persistenceStrategy == null) {
+            throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet,
+                    "Strategie nicht gesetzt");
+        }
+        List<Member> liste = this.persistenceStrategy.load();
+        this.memberList = liste;
     }
 }

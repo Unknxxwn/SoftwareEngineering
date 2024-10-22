@@ -1,4 +1,4 @@
-package test.org.hbrs.se1.ws24.tests.uebung1.uebung2;
+package test.org.hbrs.se1.ws24.tests.uebung2;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -15,7 +15,7 @@ public class ContainerTest {
 
     @BeforeEach
     public void initialize() {
-        this.container = new Container();
+        this.container = Container.getInstance();
     }
 
     @Test

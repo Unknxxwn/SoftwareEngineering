@@ -25,6 +25,7 @@ public class PersistenceException extends Exception {
      * client
      */
     public enum ExceptionType {
-        ImplementationNotAvailable, ConnectionNotAvailable, NoStrategyIsSet, LoadingFailed, SavingFailed
+        ImplementationNotAvailable, ConnectionNotAvailable, NoStrategyIsSet, LoadingFailed, SavingFailed,
+        UnsupportedOperationException
     }
 }

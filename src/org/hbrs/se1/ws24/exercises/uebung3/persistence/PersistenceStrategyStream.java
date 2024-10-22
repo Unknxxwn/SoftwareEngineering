@@ -74,7 +74,7 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
                 fis.close();
         } catch (Exception e) {
             throw new PersistenceException(PersistenceException.ExceptionType.LoadingFailed,
-                    "Fehler beim Laden der Datei ");
+                    "Fehler beim Laden der Datei");
         }
 
         return null;

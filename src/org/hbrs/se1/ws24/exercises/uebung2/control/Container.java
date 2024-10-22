@@ -69,20 +69,35 @@ public class Container {
     }
 
     public void store() throws PersistenceException {
-        if (persistenceStrategy == null) {
+        if (this.persistenceStrategy == null) {
             throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet,
-                    "Strategie nicht gesetzt");
+                    "Strategie nicht gesetzt!");
         }
+        try {
+            this.persistenceStrategy.save(this.memberList);
 
-        this.persistenceStrategy.save(this.memberList);
+        } catch (UnsupportedOperationException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.ImplementationNotAvailable,
+                    "Strategie nicht implementiert!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void load() throws PersistenceException {
-        if (persistenceStrategy == null) {
+        if (this.persistenceStrategy == null) {
             throw new PersistenceException(PersistenceException.ExceptionType.NoStrategyIsSet,
-                    "Strategie nicht gesetzt");
+                    "Strategie nicht gesetzt!");
         }
-        List<Member> liste = this.persistenceStrategy.load();
-        this.memberList = liste;
+        try {
+            List<Member> liste = this.persistenceStrategy.load();
+            this.memberList = liste;
+
+        } catch (UnsupportedOperationException e) {
+            throw new PersistenceException(PersistenceException.ExceptionType.ImplementationNotAvailable,
+                    "Strategie nicht implementiert!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

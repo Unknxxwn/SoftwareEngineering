@@ -9,7 +9,7 @@ import java.util.List;
 public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
 
     // URL of file, in which the objects are stored
-    private String location = "D:\\Java\\SoftwareEngineering\\SoftwareEngineering\\test";
+    private String location = "D:/Java/SoftwareEngineering/SoftwareEngineering/test/Test.txt";
     private ObjectInputStream ois = null;
     private FileInputStream fis = null;
 

@@ -16,7 +16,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e);
         }
-        container.dump();
 
         // System.out.println(container.deleteMember(1));
         // System.out.println(container.size());

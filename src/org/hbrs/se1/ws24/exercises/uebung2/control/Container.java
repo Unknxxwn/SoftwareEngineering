@@ -60,10 +60,8 @@ public class Container {
                 " ist nicht vorhanden";
     }
 
-    public void dump() {
-        for (Member member : memberList) {
-            System.out.println(member.toString());
-        }
+    public List<Member> getCurrentList() {
+        return memberList;
     }
 
     public Integer size() {

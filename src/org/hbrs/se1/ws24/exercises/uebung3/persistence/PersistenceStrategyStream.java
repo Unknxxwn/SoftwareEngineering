@@ -28,7 +28,9 @@ public class PersistenceStrategyStream<E> implements PersistenceStrategy<E> {
     @Override
     /**
      * Method for saving a list of Member-objects to a disk (HDD)
-     * Look-up in Google for further help!
+     * Look-up in Google for further help! Good source:
+     * https://www.digitalocean.com/community/tutorials/objectoutputstream-java-write-object-file
+     * (Last Access: Oct, 15th 2024)
      */
     public void save(List<E> member) throws PersistenceException {
         try {

@@ -1,4 +1,4 @@
-package org.hbrs.se1.ws24.exercises.uebung3;
+package org.hbrs.se1.ws24.exercises.uebung3.view;
 
 import java.util.List;
 

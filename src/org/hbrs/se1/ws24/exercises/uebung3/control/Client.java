@@ -1,4 +1,4 @@
-package org.hbrs.se1.ws24.exercises.uebung3;
+package org.hbrs.se1.ws24.exercises.uebung3.control;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.hbrs.se1.ws24.exercises.uebung2.control.Container;
 import org.hbrs.se1.ws24.exercises.uebung2.control.ContainerException;
 import org.hbrs.se1.ws24.exercises.uebung2.control.Member;
 import org.hbrs.se1.ws24.exercises.uebung3.persistence.PersistenceException;
+import org.hbrs.se1.ws24.exercises.uebung3.view.MemberView;
 
 public class Client {
 

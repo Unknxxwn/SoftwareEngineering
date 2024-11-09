@@ -8,6 +8,8 @@ import org.hbrs.se1.ws24.exercises.uebung2.control.ContainerException;
 import org.hbrs.se1.ws24.exercises.uebung2.control.Member;
 import org.hbrs.se1.ws24.exercises.uebung3.persistence.PersistenceException;
 import org.hbrs.se1.ws24.exercises.uebung3.view.MemberView;
+import org.hbrs.se1.ws24.exercises.uebung4.model.ConcreteUserStory;
+import org.hbrs.se1.ws24.exercises.uebung4.model.UserStory;
 
 public class InputCli {
     Container container = Container.getInstance();

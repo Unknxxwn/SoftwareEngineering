@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import org.hbrs.se1.ws24.exercises.uebung3.persistence.PersistenceException;
 import org.hbrs.se1.ws24.exercises.uebung3.persistence.PersistenceStrategy;
 import org.hbrs.se1.ws24.exercises.uebung3.view.MemberView;
-import org.hbrs.se1.ws24.exercises.uebung4.control.ConcreteUserStory;
+import org.hbrs.se1.ws24.exercises.uebung4.model.ConcreteUserStory;
 
 public class Container {
     private PersistenceStrategy<Member> persistenceStrategy = null;

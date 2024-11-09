@@ -1,6 +1,8 @@
 package org.hbrs.se1.ws24.exercises.uebung4.control;
 
-public class ConcreteUserStory implements UserStory {
+import java.io.Serializable;
+
+public class ConcreteUserStory implements UserStory, Serializable {
 
     private Integer id;
     private String titel;
@@ -11,10 +13,11 @@ public class ConcreteUserStory implements UserStory {
     private Integer risiko;
     private Double priorität;
     private String epic;
+    private String userStory;
     private String projekt;
 
     public ConcreteUserStory(Integer id, String titel, String akzeptanzkriterium, Integer mehrwert, Integer strafe,
-            Integer aufwand, Integer risiko, Double priorität, String epic, String projekt) {
+            Integer aufwand, Integer risiko, Double priorität, String epic, String userStory, String projekt) {
         this.id = id;
         this.titel = titel;
         this.akzeptanzkriterium = akzeptanzkriterium;
@@ -22,16 +25,25 @@ public class ConcreteUserStory implements UserStory {
         this.strafe = strafe;
         this.aufwand = aufwand;
         this.risiko = risiko;
-        this.priorität = priorität;
+        this.priorität = (double) (mehrwert + strafe) / (risiko + aufwand);
+        this.userStory = userStory;
         this.epic = epic;
         this.projekt = projekt;
     }
 
     @Override
     public String toString() {
-        return "ConcreteUserStory [id=" + id + ", titel=" + titel + ", akzeptanzkriterium=" + akzeptanzkriterium
-                + ", mehrwert=" + mehrwert + ", strafe=" + strafe + ", aufwand=" + aufwand + ", risiko=" + risiko
-                + ", priorität=" + priorität + ", epic=" + epic + ", projekt=" + projekt + "]";
+        return "ConcreteUserStory" + "\n"
+                + "id: " + id + "\n"
+                + "titel: " + titel + "\n"
+                + "akzeptanzkriterium: " + akzeptanzkriterium + "\n"
+                + "mehrwert: " + mehrwert + "\n"
+                + "strafe: " + strafe + "\n"
+                + "aufwand: " + aufwand + "\n"
+                + "risiko: " + risiko + "\n"
+                + "priorität: " + priorität + "\n"
+                + "epic: " + epic + "\n"
+                + "projekt: " + projekt;
     }
 
     public String getTitel() {
@@ -86,8 +98,12 @@ public class ConcreteUserStory implements UserStory {
         return priorität;
     }
 
-    public void setPriorität(Double priorität) {
-        this.priorität = priorität;
+    public String getUserStory() {
+        return userStory;
+    }
+
+    public void setUserStory(String userStory) {
+        this.userStory = userStory;
     }
 
     public String getEpic() {

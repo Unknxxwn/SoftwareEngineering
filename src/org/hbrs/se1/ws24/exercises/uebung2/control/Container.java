@@ -1,10 +1,15 @@
 package org.hbrs.se1.ws24.exercises.uebung2.control;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.hbrs.se1.ws24.exercises.uebung3.persistence.PersistenceException;
 import org.hbrs.se1.ws24.exercises.uebung3.persistence.PersistenceStrategy;
+import org.hbrs.se1.ws24.exercises.uebung3.view.MemberView;
+import org.hbrs.se1.ws24.exercises.uebung4.control.ConcreteUserStory;
+import org.hbrs.se1.ws24.exercises.uebung4.control.UserStory;
 
 public class Container {
     private PersistenceStrategy<Member> persistenceStrategy = null;
@@ -66,6 +71,28 @@ public class Container {
 
     public Integer size() {
         return memberList.size();
+    }
+
+    public void dump() {
+        MemberView memberView = new MemberView();
+        List<Member> sortedList = memberList.stream()
+                .filter(member -> member instanceof ConcreteUserStory)
+                .sorted(Comparator.comparingDouble(member -> ((ConcreteUserStory) member).getPriorität()))
+                .collect(Collectors.toList());
+        memberView.dump(sortedList);
+    }
+
+    public List<Member> searchUserStory(String searchTerm) {
+        List<Member> resultList = new ArrayList<>();
+        for (Member member : memberList) {
+            if (member instanceof ConcreteUserStory) {
+                ConcreteUserStory concreteUserStory = (ConcreteUserStory) member;
+                if (concreteUserStory.getProjekt().equals(searchTerm)) {
+                    resultList.add(member);
+                }
+            }
+        }
+        return resultList;
     }
 
     public void store() throws PersistenceException {

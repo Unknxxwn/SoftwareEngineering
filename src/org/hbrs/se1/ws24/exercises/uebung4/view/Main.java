@@ -1,4 +1,4 @@
-package org.hbrs.se1.ws24.exercises.uebung4.control;
+package org.hbrs.se1.ws24.exercises.uebung4.view;
 
 import org.hbrs.se1.ws24.exercises.uebung2.control.Container;
 import org.hbrs.se1.ws24.exercises.uebung2.control.Member;
@@ -10,5 +10,7 @@ public class Main {
         PersistenceStrategy<Member> pStrategy = new PersistenceStrategyStream<Member>();
         Container container = Container.getInstance();
         container.setStrategy(pStrategy);
+        Client client = new Client();
+        client.start();
     }
 }

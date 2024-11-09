@@ -17,41 +17,47 @@ public class InputCli {
         System.out.println("UserStory-Tool");
         Boolean breaker = false;
         while (true) {
-            System.out.println("> ");
+            System.out.print("> ");
             String input = scanner.nextLine();
             switch (input) {
                 case "enter":
-                    System.out.println("id: ");
+                    System.out.print("id: ");
                     Integer id = scanner.nextInt();
+                    scanner.nextLine();
 
-                    System.out.println("titel: ");
+                    System.out.print("titel: ");
                     String titel = scanner.nextLine();
 
-                    System.out.println("akzeptanzkriterium: ");
+                    System.out.print("akzeptanzkriterium: ");
                     String akzeptanzkriterium = scanner.nextLine();
 
-                    System.out.println("mehrwert: ");
+                    System.out.print("mehrwert: ");
                     Integer mehrwert = scanner.nextInt();
+                    scanner.nextLine();
 
-                    System.out.println("strafe: ");
+                    System.out.print("strafe: ");
                     Integer strafe = scanner.nextInt();
+                    scanner.nextLine();
 
-                    System.out.println("aufwand: ");
+                    System.out.print("aufwand: ");
                     Integer aufwand = scanner.nextInt();
+                    scanner.nextLine();
 
-                    System.out.println("risiko: ");
+                    System.out.print("risiko: ");
                     Integer risiko = scanner.nextInt();
+                    scanner.nextLine();
 
-                    System.out.println("priorität: ");
+                    System.out.print("priorität: ");
                     Double priorität = scanner.nextDouble();
+                    scanner.nextLine();
 
-                    System.out.println("epic: ");
+                    System.out.print("epic: ");
                     String epic = scanner.nextLine();
 
-                    System.out.println("userstory: ");
+                    System.out.print("userstory: ");
                     String userstory = scanner.nextLine();
 
-                    System.out.println("projekt: ");
+                    System.out.print("projekt: ");
                     String projekt = scanner.nextLine();
 
                     UserStory userStory = new ConcreteUserStory(id, titel, akzeptanzkriterium, mehrwert, strafe,
@@ -80,6 +86,7 @@ public class InputCli {
                     memberView.dump(searchresultList);
                     break;
                 case "exit":
+                    System.out.println("Eingabe wird beendet");
                     breaker = true;
 
                     break;

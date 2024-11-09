@@ -1,5 +1,0 @@
-package org.hbrs.se1.ws24.exercises.uebung4.control;
-
-public class Client {
-
-}

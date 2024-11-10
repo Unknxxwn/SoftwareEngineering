@@ -49,10 +49,6 @@ public class InputCli {
                     Integer risiko = scanner.nextInt();
                     scanner.nextLine();
 
-                    System.out.print("priorität: ");
-                    Double priorität = scanner.nextDouble();
-                    scanner.nextLine();
-
                     System.out.print("epic: ");
                     String epic = scanner.nextLine();
 
@@ -63,7 +59,7 @@ public class InputCli {
                     String projekt = scanner.nextLine();
 
                     UserStory userStory = new ConcreteUserStory(id, titel, akzeptanzkriterium, mehrwert, strafe,
-                            aufwand, risiko, priorität, epic, userstory, projekt);
+                            aufwand, risiko, epic, userstory, projekt);
                     container.addMember(userStory);
                     System.out.println("UserStory wurde hinzugefügt");
                     break;

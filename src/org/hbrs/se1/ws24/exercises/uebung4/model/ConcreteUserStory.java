@@ -17,7 +17,7 @@ public class ConcreteUserStory implements UserStory, Serializable {
     private String projekt;
 
     public ConcreteUserStory(Integer id, String titel, String akzeptanzkriterium, Integer mehrwert, Integer strafe,
-            Integer aufwand, Integer risiko, Double priorität, String epic, String userStory, String projekt) {
+            Integer aufwand, Integer risiko, String epic, String userStory, String projekt) {
         this.id = id;
         this.titel = titel;
         this.akzeptanzkriterium = akzeptanzkriterium;

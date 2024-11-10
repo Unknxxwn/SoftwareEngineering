@@ -126,4 +126,8 @@ public class Container {
             e.printStackTrace();
         }
     }
+
+    public void clearListForTest() {
+        this.memberList.clear();
+    }
 }

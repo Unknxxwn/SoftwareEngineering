@@ -6,6 +6,10 @@ import java.util.Stack;
 public class MyStack<E> extends Stack<E> {
     private final int maxSize;
 
+    public synchronized int getMaxSize() {
+        return maxSize;
+    }
+
     public MyStack(int maxSize) {
         super();
         this.maxSize = maxSize;
@@ -15,7 +19,7 @@ public class MyStack<E> extends Stack<E> {
     @Override
     public E push(E item) {
         if (size() >= maxSize) {
-            throw new IllegalStateException();
+            throw new IndexOutOfBoundsException();
         }
         return super.push(item);
     }

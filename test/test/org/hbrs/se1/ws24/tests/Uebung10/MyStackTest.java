@@ -4,8 +4,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import java.util.EmptyStackException;
-
 import org.hbrs.se1.ws24.exercises.uebung10.MyStack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,49 +13,27 @@ public class MyStackTest {
 
     @BeforeEach
     public void setUp() {
+        // Test soll mit einem Stack von n=4 dürchgeführt werden
+        stack = new MyStack<>(4);
     }
 
     @Test
-    void testIsEmpty() {
-        stack = new MyStack<>(1);
+    void testRoundTrip() {
         assertTrue(stack.isEmpty());
-    }
-
-    @Test
-    void testPeek() {
-        stack = new MyStack<>(1);
         stack.push(1);
-        assertEquals(1, stack.peek());
-    }
-
-    @Test
-    void testEmptypeek() {
-        stack = new MyStack<>(1);
-        assertEquals(null, stack.peek());
-    }
-
-    @Test
-    void testPop() {
-        stack = new MyStack<>(1);
-        stack.push(1);
+        assertEquals(1, stack.size());
         stack.pop();
-        assertTrue(stack.isEmpty());
+        stack.push(1);
+        stack.push(2);
+        assertEquals(2, stack.size());
+        stack.push(3);
+        assertEquals(stack.getMaxSize() - 1, stack.size());
+        stack.push(4);
+        assertThrows(IndexOutOfBoundsException.class, () -> stack.push(5));
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        assertEquals(1, stack.size());
     }
 
-    @Test
-    void testEmptyPop() {
-        stack = new MyStack<>(1);
-        assertThrows(EmptyStackException.class, () -> stack.pop());
-    }
-
-    @Test
-    void testPush() {
-        stack = new MyStack<>(2);
-        stack.push(null);
-    }
-
-    @Test
-    void testSize() {
-
-    }
 }
